@@ -1,0 +1,11 @@
+{
+    "elasticsearch": {
+        "version": "1.7",
+        "url": ""
+    },
+    "backup": {
+        "bucketName": "",
+        "clusterName": "",
+        "indices": ""
+    }
+}

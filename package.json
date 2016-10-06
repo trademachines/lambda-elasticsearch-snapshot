@@ -1,0 +1,17 @@
+{
+  "name": "mkp-es-snapshot",
+  "version": "1.0.0",
+  "main": "handler.js",
+  "dependencies": {
+    "async": "^2.0.1",
+    "aws-lambda-config": "0.0.1",
+    "dateformat": "^1.0.12",
+    "elasticsearch": "^11.0.1"
+  },
+  "devDependencies": {
+    "jasmine": "^2.5.2"
+  },
+  "scripts": {
+    "test": "node_modules/.bin/jasmine spec/*"
+  }
+}
