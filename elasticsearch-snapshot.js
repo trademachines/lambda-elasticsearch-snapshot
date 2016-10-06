@@ -7,6 +7,7 @@ const config        = require('aws-lambda-config');
 exports.createSnapshot = (event, context, cb) => {
     console.log("Start.");
     config.getConfig(context, (err, cfg) => {
+        console.log("Config loaded.");
         const esClient = new elasticsearch.Client({
             host: cfg.elasticsearch.url,
             apiVersion: cfg.elasticsearch.version,
