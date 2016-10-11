@@ -18,3 +18,25 @@ Package the code `$ zip lambda-elasticsearch-snapshot -r .` and create the lambd
 - Create the configuration file
 
 Rename the file `lambda-elasticsearch-snapshot.json.dist` with `<name of your lambda>.json` and put it in S3. (check https://github.com/gilt/aws-lambda-config to find where exactly this file should be stored) 
+
+## Restore
+
+Nothing special here, just the standard way of restoring snapshots. You can find additional informations/configuration options in the [official Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-snapshots.html#_restore)
+
+List the availables snapshots:
+
+```
+curl -XGET http://your-es-url/_snapshot/your-bucket-name/_all?pretty
+```
+
+Restore:
+
+```
+curl -XGET http://your-es-url/_snapshot/your-bucket-name/snapshot-id/_restore -d '{ 
+	"indices": "yourindices",
+	"ignore_unavailable": "true",
+	"include_aliases": false,
+	"rename_pattern": "(.+)",
+    "rename_replacement": "restored_index_$1"
+}'
+```
