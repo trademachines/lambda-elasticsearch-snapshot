@@ -32,7 +32,7 @@ curl -XGET http://your-es-url/_snapshot/your-bucket-name/_all?pretty
 Restore:
 
 ```
-curl -XGET http://your-es-url/_snapshot/your-bucket-name/snapshot-id/_restore -d '{ 
+curl -XPOST http://your-es-url/_snapshot/your-bucket-name/snapshot-id/_restore -d '{ 
 	"indices": "yourindices",
 	"ignore_unavailable": "true",
 	"include_aliases": false,
