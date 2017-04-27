@@ -5,7 +5,7 @@ const esService     = require('./src/elasticsearch-service');
 exports.handle = (event, context, cb) => {
   if (!!event.ping) {
     console.log("Ping. Pong.");
-    return callback(null, {pong: true});
+    return cb(null, {pong: true});
   }
 
   console.log("Start.");
