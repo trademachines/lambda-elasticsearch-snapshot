@@ -1,5 +1,3 @@
-'use strict';
-
 const esService = require('./../src/elasticsearch-service');
 
 const bucketName = "bucket-name";

@@ -1,6 +1,7 @@
 # lambda-elastichsearch-snapshot
 
-This is a lambda which trigger an ElasticSearch snapshot (and create a S3 repository). This lambda can be then scheduled via CloudWatch to periodically backup your elasticsearch indices.
+This is a lambda which trigger an ElasticSearch snapshot (and create a S3 repository). This lambda can be then
+scheduled via CloudWatch to periodically backup your Elasticsearch indices.
 
 ## Requirements
 - You need to install the [Elasticsearch Cloud AWS](https://github.com/elastic/elasticsearch-cloud-aws) plugin 
@@ -9,15 +10,16 @@ This is a lambda which trigger an ElasticSearch snapshot (and create a S3 reposi
 
 - Install the dependencies
 
-```npm install```
+```yarn install```
 
 - Create the lambda function in AWS
 
-Package the code `$ zip lambda-elasticsearch-snapshot -r .` and create the lambda in AWS.
+Package the code `$ zip lambda-elasticsearch-snapshot -r .` and create the lambda in AWS or use e.g. Terraform
+to provision the necessary infrastructure.
 
-- Create the configuration file
-
-Rename the file `lambda-elasticsearch-snapshot.json.dist` with `<name of your lambda>.json` and put it in S3. (check https://github.com/gilt/aws-lambda-config to find where exactly this file should be stored) 
+## Trigger backup
+Use a Cloudwatch rule to trigger your Lambda with the contents of `lambda-elasticsearch-snapshot.json.dist` tailored
+to your environment.
 
 ## Restore
 

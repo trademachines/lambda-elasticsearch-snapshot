@@ -1,0 +1,8 @@
+extends: google
+parserOptions:
+  ecmaVersion: 6
+rules:
+  no-multi-spaces: off
+  key-spacing: off
+  comma-dangle: off
+  max-len: [error, 100]

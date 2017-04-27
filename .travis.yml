@@ -1,0 +1,23 @@
+language: node_js
+node_js:
+  - '6.10'
+cache: yarn
+before_deploy:
+  - yarn install --production
+deploy:
+  -
+    provider: lambda
+    function_name: prd-elasticsearch-backup
+    module_name: index
+    handler_name: handle
+    role: arn:aws:iam::608300940987:role/prd-elasticsearch-backup
+    runtime: nodejs6.10
+    memory_size: 128
+    timeout: 10
+    region: eu-west-1
+    access_key_id:
+      secure: 'f0HAF4TNHnd6OSgJi4ThV/6jloiFph80HEbrLas1Jv0hgU6/bL0UBkrT8fg8AhVtgtBEsx8N0u8QCeAUwF5liq4R0KyZ+nFw8GKcuZBXnteEuJ13COJe6M9PI3fedwdjP4MUfSbjEj4zFCVXF4MSSnYpkhaul1hUL+g3oAeMCGvgM0PnwOLDJmaX2GNZlviUJuaYulgv5lrkhg2P7qyeGNAe4UWiDSmlwu8m4WU98HoxTxBBQyHBmln1QvHE0UNeQ6Y/VCbB+SRtZDHsRkChBSpdts3MU1mDbmx1X9DQ4ndz5buAz94Zlvs0t2MhKb6L4tM5EwI5MTv+QkqmZwc36dMEVqUW1jd+PQMiq8gEBdstO4gPna+MLV0/M4RVDX5X2Q4lEHL7lzGYLcbn1U0A0/Cd9gjDlY1ghqx23Tea5aF7Xk/X50R3ojXMX3xTRd+4yOuEVQMBjW3l7ijgetYI6ptPlht6EKUrA2wFpMHkUuEWL9htjqhMLjU1eHWcCXpVoM/9qa7UQXSak+HcGZxkEz+QYPoK5zM7P/cMT1GAVgZ8jzwmoHkPh3LEWT5qGiiLc6ZUelFftFQ4Blf10fjg6tjYLZO3gQiLcVPWxs1FqpMAubmqV8QBpdPch28eSzgSrnFlgCgbq18muv/msf9LXivXKOAVCSmdAApQHbVVtOw='
+    secret_access_key:
+      secure: 'Of12WBv2Iz8KZwajOm7ye84mg1tFQcNjpWZU2u7WirkyTwM02kfxIxogU40uKjJDhcUE8Ebm75Sn66dUjr2UdEujN5T2zRXOHZ0NyYNen/jL0aSM6Qf7Ajv7W3nmjTQi1wB54G77w5uDbmfmIdndxODBSNVeBZW3Pi9ZQN65XsQ2dbuyhduNXz/KISGHQoE31wkBd2HnkriXZmmTUDY1kJb+YwQgf6OrgvKRWWxYne2A66LrrUNrSU9iAmHuig4+d2gwly7KPGVPXb7BbWMeaL1w7vqmUSkwn6gtrtdlbw6SnKHLFreBMoFfeMWIQzxr5UA115c0rL5kLo3tS3sqnJa5uinQD4HPjdr9j9RHDL6eHOzQebY4rOWegasf43FnPfBdSIQ3g/n7RoQF4/YARrHVrZHylNRtZC7+Sr/vsNIYTY3vGO550WkjKnkQuvm3gdVZ7jNhkMdV+4DTQwsyZaOeLtVhlI4LvgW0qagyGUDl8j6gwHxzo1p8EQdFtkBZzCC6BMIAFKxC+3GbN+bPfS4QE/ZjQOExpHTEo2+ubH9NQcGwUHtotx7+gweLDWsVFy9bvw9vgTqp2GNlS8FE2zzEhWjsF3JhzAeVk8Q5FbW7ogyfWHKUFdHE09CSoArpDuBloO/9vL6+JTU/YPDoByQnLtO04pTq+zKcJKmVUBc='
+    on:
+      branch: master

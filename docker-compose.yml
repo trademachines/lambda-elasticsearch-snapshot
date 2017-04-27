@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+  lambda-elasticsearch-snapshot:
+    image: node:6.10-alpine
+    entrypoint: sh
+    working_dir: /usr/share/app
+    volumes:
+      - ~/.aws:/root/.aws
+      - ~/.cache/yarn:/root/.cache/yarn
+      - ./:/usr/share/app
