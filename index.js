@@ -2,11 +2,6 @@ const assert        = require('assert');
 const elasticsearch = require('elasticsearch');
 const esService     = require('./src/elasticsearch-service');
 
-assert(process.env.ELASTICSEARCH_URL, 'No ELASTICSEARCH_URL defined');
-assert(process.env.ELASTICSEARCH_VERSION, 'No ELASTICSEARCH_VERSION defined');
-assert(process.env.BACKUP_BUCKET_NAME, 'No BACKUP_BUCKET_NAME defined');
-assert(process.env.BACKUP_INDICES, 'No BACKUP_INDICES defined');
-
 exports.handle = (event, context, cb) => {
   if (!!event.ping) {
     console.log("Ping. Pong.");
