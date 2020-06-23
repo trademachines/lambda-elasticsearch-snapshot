@@ -2,7 +2,7 @@ version: '2'
 
 services:
   lambda-elasticsearch-snapshot:
-    image: node:6.10-alpine
+    image: node:12.16
     entrypoint: sh
     working_dir: /usr/share/app
     volumes:

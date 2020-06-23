@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - '6.10'
+  - '12.6'
 cache: yarn
 before_deploy:
   - yarn install --production
@@ -11,7 +11,7 @@ deploy:
     module_name: index
     handler_name: handle
     role: arn:aws:iam::608300940987:role/prd-elasticsearch-backup
-    runtime: nodejs6.10
+    runtime: nodejs12.x
     memory_size: 128
     timeout: 10
     region: eu-west-1
